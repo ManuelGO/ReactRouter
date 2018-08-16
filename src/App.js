@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
+import HomeContainer from './containers/HomeContainer';
+import CustomersContainer from './containers/CustomersContainer';
+import CustomerEdit from './components/CustomerEdit';
 
 class App extends Component {
+  renderDummyC = () => ("dummy render")
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/customers" component={CustomersContainer} />
+          <Switch>
+            <Route path="/customers/new" component={this.renderDummyC} />
+            <Route path="/customers/:id" component={this.renderDummyC} />
+            <Route path="/customers/:id/edit" component={CustomerEdit} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
