@@ -1,0 +1,36 @@
+{
+  "customers": [
+    {
+        "dni":"100001",
+        "name":"Manuel Gonzalez",
+        "age":"37"
+    },
+    {
+        "dni":"200002",
+        "name":"Manuel Arvelo",
+        "age":"37"
+    },
+    {
+        "dni":"300003",
+        "name":"Manuel Gonzalez",
+        "age":"37"
+    }
+],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
