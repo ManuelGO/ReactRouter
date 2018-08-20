@@ -13,7 +13,7 @@ const CustomerEdit = ({name, dni, age}) => {
 CustomerEdit.propTypes = {
     name: PropTypes.string,
     dni: PropTypes.string,
-    age: PropTypes.number,
+    age: PropTypes.string,
 };
 
 export default CustomerEdit;

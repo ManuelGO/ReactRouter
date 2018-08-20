@@ -4,6 +4,7 @@ import './App.css';
 import HomeContainer from './containers/HomeContainer';
 import CustomersContainer from './containers/CustomersContainer';
 import CustomerEdit from './components/CustomerEdit';
+import SingleCustomerContainer from './containers/SingleCustomerContainer'
 
 class App extends Component {
   renderDummyC = () => ("dummy render")
@@ -14,9 +15,8 @@ class App extends Component {
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/customers" component={CustomersContainer} />
           <Switch>
-            <Route path="/customers/new" component={this.renderDummyC} />
-            <Route path="/customers/:id" component={this.renderDummyC} />
-            <Route path="/customers/:id/edit" component={CustomerEdit} />
+            <Route path="/customer/new" component={SingleCustomerContainer} />
+            <Route path="/customer/:dni" render={props => <SingleCustomerContainer dni={props.match.params.dni} />} />
           </Switch>
         </div>
       </BrowserRouter>
