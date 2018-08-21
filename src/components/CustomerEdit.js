@@ -3,6 +3,14 @@ import PropTypes from "prop-types";
 import { setPropsAsInitial } from "../HOC/setPropsAsInitial";
 import { reduxForm, Field } from "redux-form"; //HOC!!!
 
+const isRequired = value => !value && "Este campo es requerido";
+const myField = ({ input, meta }) => (
+  <div>
+    <input {...input} type="text" />
+    {meta.error && <span>{meta.error}</span>}
+  </div>
+);
+
 const CustomerEdit = ({ name, dni, age }) => {
   return (
     <div>
@@ -10,7 +18,12 @@ const CustomerEdit = ({ name, dni, age }) => {
       <form>
         <div>
           <label htmlFor="name">Nombre</label>
-          <Field name="name" component="input" type="text" />
+          <Field
+            name="name"
+            component={myField}
+            type="text"
+            validate={isRequired}
+          />
         </div>
         <div>
           <label htmlFor="dni">DNI</label>
